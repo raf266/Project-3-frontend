@@ -117,15 +117,33 @@ function Dashboard({ user }) {
             />
           </div>
 
-          <div>
-            <label>Profile Image URL:</label>
-            <input
-              type="text"
-              name="profileImage"
-              value={formData.profileImage}
-              onChange={handleChange}
-            />
-          </div>
+        <div>
+  <h3>Profile Picture</h3>
+
+  {formData.profileImage ? (
+    <img
+      src={formData.profileImage}
+      alt="Profile Preview"
+      width="150"
+      height="150"
+      style={{
+        borderRadius: "50%",
+        objectFit: "cover",
+      }}
+    />
+  ) : (
+    <p>No profile picture added yet.</p>
+  )}
+
+  <label>Profile Image URL:</label>
+  <input
+    type="text"
+    name="profileImage"
+    value={formData.profileImage}
+    onChange={handleChange}
+    placeholder="Paste your image URL here"
+  />
+</div>
 
           <button type="submit">Save Changes</button>
 
