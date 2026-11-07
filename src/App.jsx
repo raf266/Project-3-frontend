@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import Navbar from "./components/Navbar";
@@ -6,16 +7,14 @@ import Homepage from "./pages/Homepage";
 import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import { logout } from "./services/authService";
+import MySessions from "./pages/MySessions";
 
 function App() {
-  function  getUserFromToken (){
+  function getUserFromToken() {
     const token = localStorage.getItem("token");
-
     if (!token) return null;
-
     return JSON.parse(atob(token.split(".")[1]));
-  };
-
+  }
 
   const [user, setUser] = useState(getUserFromToken());
 
@@ -35,6 +34,7 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard user={user} /> : <Navigate to="/sign-in" />}
         />
+        <Route path="/my-sessions" element={<MySessions />} />
       </Routes>
     </div>
   );
