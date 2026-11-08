@@ -10,6 +10,7 @@ function Navbar({ user, handleLogout }) {
       (<>
         <Link to='/dashboard'>Dashboard</Link>
         <Link to='/my-sessions'>My Sessions</Link>
+        <Link to="/request-session">Request Session</Link>
         <button onClick={handleLogout}>Sign Out</button>
       </>) :
       (<>
