@@ -10,6 +10,7 @@ import { logout } from "./services/authService";
 import MySessions from "./pages/MySessions";
 import SessionRequest from "./pages/SessionRequest";
 import ExploreSkills from "./pages/ExploreSkills";
+import AddSkill from "./pages/AddSkill";
 
 function App() {
   function getUserFromToken() {
@@ -36,6 +37,8 @@ function App() {
         <Route path="/my-sessions" element={<MySessions />} />
         <Route path="/request-session" element={user ? <SessionRequest /> : <Navigate to="/sign-in" />} />
         <Route path="/skills" element={<ExploreSkills />} />
+        <Route path="/skills/new" element={user ? <AddSkill /> : <Navigate to="/sign-in" />} />
+
       </Routes>
     </div>
   );
