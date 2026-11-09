@@ -5,9 +5,11 @@ function Navbar({ user, handleLogout }) {
   return (
     <nav>
       <Link to='/'>Homepage</Link>
+
       {user
       ?
       (<>
+        <Link to='/skills'>Explore Skills</Link>
         <Link to='/dashboard'>Dashboard</Link>
         <Link to='/my-sessions'>My Sessions</Link>
         <Link to="/request-session">Request Session</Link>
