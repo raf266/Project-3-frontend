@@ -1,27 +1,48 @@
 
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import './Navbar.css';
 
 function Navbar({ user, handleLogout }) {
   return (
-    <nav>
-      <Link to='/'>Homepage</Link>
+    <nav className="navbar">
+      <Link to="/" className="navbar-logo">
+        SkillSwap<span>.</span>
+      </Link>
 
-      {user
-      ?
-      (<>
-        <Link to='/skills'>Explore Skills</Link>
-        <Link to='/skills/new'>Add Skill</Link>
-        <Link to='/dashboard'>Dashboard</Link>
-        <Link to='/my-sessions'>My Sessions</Link>
-        <Link to="/request-session">Request Session</Link>
-        <button onClick={handleLogout}>Sign Out</button>
-      </>) :
-      (<>
-        <Link to='/sign-up'>Sign Up</Link>
-        <Link to='/sign-in'>Sign In</Link>
-      </>)}
+      {user ? (
+        <div className="navbar-links">
+          <Link to="/profile">My Profile</Link>
+          <Link to="/skills">Explore Skills</Link>
+          <Link to="/skills/new">Add Skill</Link>
+          <Link to="/my-sessions">My Sessions</Link>
+
+          <button className="signout-btn" onClick={handleLogout}>
+            Sign Out
+          </button>
+        </div>
+      ) : (
+        <div className="navbar-links">
+          <Link to="/" className="nav-link">Home</Link>
+
+          <Link to="/#how-it-works" className="nav-link">
+            How It Works
+          </Link>
+
+          <Link to="/#about" className="nav-link">
+            About
+          </Link>
+
+          <Link to="/sign-in" className="signin-btn">
+            Sign In
+          </Link>
+
+          <Link to="/sign-up" className="signup-btn">
+            Sign Up
+          </Link>
+        </div>
+      )}
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

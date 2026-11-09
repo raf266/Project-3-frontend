@@ -1,7 +1,21 @@
-.error{
-    color: red
+* {
+  box-sizing: border-box;
 }
 
-nav a{
-    margin-right: 10px
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.error {
+  color: red;
 }
