@@ -12,8 +12,10 @@ function Navbar({ user, handleLogout }) {
       {user ? (
         <div className="navbar-links">
           <Link to="/profile">My Profile</Link>
+          <Link to="/skills">Explore Skills</Link>
+          <Link to="/skills/new">Add Skill</Link>
           <Link to="/my-sessions">My Sessions</Link>
-          <Link to="/request-session">Request Session</Link>
+
           <button className="signout-btn" onClick={handleLogout}>
             Sign Out
           </button>
@@ -21,15 +23,19 @@ function Navbar({ user, handleLogout }) {
       ) : (
         <div className="navbar-links">
           <Link to="/" className="nav-link">Home</Link>
+
           <Link to="/#how-it-works" className="nav-link">
             How It Works
           </Link>
+
           <Link to="/#about" className="nav-link">
             About
           </Link>
+
           <Link to="/sign-in" className="signin-btn">
             Sign In
           </Link>
+
           <Link to="/sign-up" className="signup-btn">
             Sign Up
           </Link>
