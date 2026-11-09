@@ -10,6 +10,7 @@ function Navbar({ user, handleLogout }) {
       ?
       (<>
         <Link to='/skills'>Explore Skills</Link>
+        <Link to='/skills/new'>Add Skill</Link>
         <Link to='/dashboard'>Dashboard</Link>
         <Link to='/my-sessions'>My Sessions</Link>
         <Link to="/request-session">Request Session</Link>
