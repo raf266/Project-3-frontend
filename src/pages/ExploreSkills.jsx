@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
+import {Link} from "react-router";
 
 function ExploreSkills(){
     const [ skills, setskills ] = useState([]);
@@ -35,6 +36,8 @@ function ExploreSkills(){
                         <p>Level:{skill.level}</p>
                         <p>Type:{skill.type}</p>
                         <p>Created by:{skill.userId?.name || "Unknown"}</p>
+
+                        <Link to={`/skills/${skill._id}`}>View Details</Link>
                         <hr  />
                         
                     </div>
