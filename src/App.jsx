@@ -7,7 +7,6 @@ import Homepage from "./pages/Homepage";
 import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import MySessions from "./pages/MySessions";
-import SessionRequest from "./pages/SessionRequest";
 import { logout } from "./services/authService";
 import ExploreSkills from "./pages/ExploreSkills";
 import AddSkill from "./pages/AddSkill";
@@ -62,10 +61,6 @@ function App() {
           element={user ? <MySessions /> : <Navigate to="/sign-in" />}
         />
 
-        <Route
-          path="/request-session"
-          element={user ? <SessionRequest /> : <Navigate to="/sign-in" />}
-        />
 
         <Route path="/skills" element={<ExploreSkills />} />
         <Route
