@@ -12,6 +12,7 @@ import ExploreSkills from "./pages/ExploreSkills";
 import AddSkill from "./pages/AddSkill";
 import SkillDetails from "./pages/SkillDetails";
 import EditSkill from "./pages/EditSkill";
+import SessionRequest from "./pages/SessionRequest"
 
 function App() {
   function getUserFromToken() {
@@ -72,6 +73,8 @@ function App() {
           path="/skills/:id/edit"
           element={user ? <EditSkill /> : <Navigate to="/sign-in" />}
         />
+
+        <Route path="/sessions/create/:skillId" element={<SessionRequest />} />
       </Routes>
     </div>
   );
