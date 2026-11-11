@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router';
 import api from "../services/api";
+import "./AddSkill.css";
 
 function AddSkill() {
 
@@ -31,7 +32,7 @@ function AddSkill() {
 }
    
   return (
-    <div>
+    <div className="add-skill-page">
         <h1>Add Skill</h1>
 
         <form onSubmit={handleSubmit}>
@@ -40,6 +41,7 @@ function AddSkill() {
             <input 
             type="text" 
             name="title"
+            placeholder="e.g. Web Development"
             value={formData.title}
             onChange={handleChange}
             required
@@ -50,6 +52,7 @@ function AddSkill() {
             <label>Description:</label>
             <textarea 
             name="description"
+            placeholder="Describe the skill..."
             value={formData.description}
             onChange={handleChange}
             required
@@ -61,6 +64,7 @@ function AddSkill() {
             <input 
             type="text" 
             name="category"
+            placeholder="e.g. Technology"
             value={formData.category}
             onChange={handleChange}
             required

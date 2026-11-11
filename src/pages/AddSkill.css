@@ -1,0 +1,115 @@
+
+/* ==============================
+   ADD SKILL PAGE
+================================ */
+
+.add-skill-page {
+  min-height: 100vh;
+  padding: 55px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #faf8ff, #f3f0ff 60%, #f0faff);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Heading */
+
+.add-skill-page h1 {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  color: #29164f;
+  font-size: 30px;
+}
+
+/* Form card */
+
+.add-skill-page form {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #eee8f8;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(41, 22, 79, 0.07);
+}
+
+/* Form fields */
+
+.add-skill-page form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.add-skill-page label {
+  color: #49366d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.add-skill-page input,
+.add-skill-page textarea,
+.add-skill-page select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #e8e0f3;
+  border-radius: 11px;
+  outline: none;
+  background: #fcfbff;
+  color: #49366d;
+  font-family: inherit;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.add-skill-page input:focus,
+.add-skill-page textarea:focus,
+.add-skill-page select:focus {
+  border-color: #9672d5;
+  box-shadow: 0 0 0 3px rgba(117, 72, 200, 0.1);
+}
+
+.add-skill-page textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Add Skill button */
+
+.add-skill-page button {
+  width: 100%;
+  margin-top: 5px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7548c8, #9672d5);
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.add-skill-page button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(117, 72, 200, 0.2);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .add-skill-page {
+    padding: 30px 15px;
+  }
+
+  .add-skill-page h1 {
+    font-size: 26px;
+  }
+
+  .add-skill-page form {
+    padding: 25px 20px;
+  }
+}
