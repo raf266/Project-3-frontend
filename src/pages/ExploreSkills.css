@@ -1,0 +1,168 @@
+
+/* ==============================
+   EXPLORE SKILLS PAGE
+================================ */
+
+.explore-page {
+  min-height: 100vh;
+  padding: 50px 7%;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #faf8ff 0%,
+    #f3f0ff 60%,
+    #f0faff 100%
+  );
+  font-family: 'Poppins', sans-serif;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  align-content: start;
+}
+
+/* ==============================
+   PAGE HEADING
+================================ */
+
+.explore-page > h1 {
+  grid-column: 1 / -1;
+  color: #29164f;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.explore-page > p {
+  grid-column: 1 / -1;
+  color: #70677f;
+  font-size: 15px;
+  margin: -15px 0 15px;
+  line-height: 1.7;
+}
+
+/* ==============================
+   SKILL CARDS
+================================ */
+
+.explore-page > div {
+  min-width: 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #eee8f8;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 0;
+
+  box-shadow: 0 8px 25px rgba(41, 22, 79, 0.06);
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-page > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(41, 22, 79, 0.11);
+}
+
+/* Skill title */
+
+.explore-page h2 {
+  color: #29164f;
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0 0 15px;
+  overflow-wrap: anywhere;
+}
+
+/* Skill information */
+
+.explore-page > div p {
+  color: #70677f;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 7px 0;
+  overflow-wrap: anywhere;
+}
+
+/* Category, Level and Type */
+
+.explore-page > div p:nth-of-type(n+2) {
+  font-size: 13px;
+}
+
+/* Created by */
+
+.explore-page > div p:last-of-type {
+  color: #49376a;
+  margin-top: 12px;
+}
+
+/* ==============================
+   VIEW DETAILS BUTTON
+================================ */
+
+.explore-page a {
+  display: block;
+  text-align: center;
+  margin-top: auto;
+  padding: 12px 18px;
+
+  background: linear-gradient(
+    135deg,
+    #8256d8,
+    #6541b5
+  );
+
+  color: white;
+  text-decoration: none;
+  border-radius: 11px;
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: 0.25s ease;
+}
+
+.explore-page a:hover {
+  background: #51318f;
+  transform: translateY(-2px);
+}
+
+/* Hide the default horizontal line */
+
+.explore-page hr {
+  display: none;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 950px) {
+  .explore-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 40px 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .explore-page {
+    grid-template-columns: 1fr;
+    padding: 30px 5%;
+    gap: 18px;
+  }
+
+  .explore-page > h1 {
+    font-size: 29px;
+  }
+
+  .explore-page > p {
+    font-size: 14px;
+  }
+
+  .explore-page > div {
+    padding: 22px;
+  }
+}

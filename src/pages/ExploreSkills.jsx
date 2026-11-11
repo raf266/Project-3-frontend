@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import {Link} from "react-router";
+import "./ExploreSkills.css";
 
 function ExploreSkills(){
     const [ skills, setskills ] = useState([]);
@@ -21,7 +22,7 @@ function ExploreSkills(){
     },[]);
 
     return(
-        <div>
+         <div className="explore-page">
             <h1>Explore Skills</h1>
             <p>Discover skills shared by other users.</p>
 
