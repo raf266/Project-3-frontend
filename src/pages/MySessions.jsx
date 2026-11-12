@@ -103,6 +103,7 @@ function MySessions({ user }) {
       <p>Pending Sessions: {sessions.filter(s => s.status === "Pending").length}</p>
       <p>Accepted Sessions: {sessions.filter(s => s.status === "Accepted").length}</p>
       <p>Completed Sessions: {sessions.filter(s => s.status === "Completed").length}</p>
+      </div>
       <div className="sessions-filters">
       <h2>Filter Sessions</h2>
       <button onClick={() => setActiveTab("all")}>All Sessions</button>
@@ -114,7 +115,8 @@ function MySessions({ user }) {
       ) : filteredSessions.length === 0 ? (
        <p className="sessions-empty">No sessions found.</p>
       ) : (
-        filteredSessions.map((session) => {
+        <div className="sessions-list">
+    {filteredSessions.map((session) => {
           const type = getType(session);
           const otherUser = type === "incoming" ? session.requesterId : session.providerId;
           return (
@@ -149,9 +151,9 @@ function MySessions({ user }) {
               <hr />
             </div>
           );
-        })
+        })}
+        </div>
       )}
-    </div>
     </div>
     </div>
   );

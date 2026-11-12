@@ -5,10 +5,12 @@ import './Navbar.css';
 function Navbar({ user, handleLogout }) {
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        SkillSwap<span>.</span>
-      </Link>
-
+     <Link to="/" className="navbar-logo">
+  <span className="navbar-icon">⇄</span>
+  <span className="navbar-name">
+    SkillSwap<span className="navbar-dot">.</span>
+  </span>
+</Link>
       {user ? (
         <div className="navbar-links">
           <Link to="/profile">My Profile</Link>

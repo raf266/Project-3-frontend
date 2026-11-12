@@ -303,8 +303,21 @@
 
 /* Profile page refinements */
 
+/* Profile page refinements */
+
 .profile-page {
-  background: linear-gradient(135deg, #faf8ff 0%, #f3f0ff 55%, #f0faff 100%);
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(190, 155, 255, 0.35),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(163, 196, 255, 0.35),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f0e8ff, #f8f3ff 50%, #eaf1ff);
 }
 
 .profile-card {

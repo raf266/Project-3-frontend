@@ -79,3 +79,61 @@
     flex-wrap: wrap;
   }
 }
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: 700;
+  color: #29164f;
+}
+
+.navbar-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a78bfa, #7548c8);
+  color: white;
+  font-size: 27px;
+  border-radius: 13px;
+  box-shadow: 0 4px 12px rgba(117, 72, 200, 0.2);
+}
+
+.navbar-name {
+  color: #29164f;
+}
+
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.navbar-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a78bfa, #7548c8);
+  color: #29164f !important;
+  font-size: 27px;
+  font-weight: bold;
+  border-radius: 13px;
+  box-shadow: 0 4px 12px rgba(117, 72, 200, 0.2);
+}
+
+.navbar-name {
+  font-size: 27px;
+  font-weight: 700;
+  color: #29164f;
+}
+
+.navbar-dot {
+  color: #8256d8;
+}

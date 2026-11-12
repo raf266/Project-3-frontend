@@ -789,3 +789,49 @@
     padding: 40px 7% 20px;
   }
 }
+
+/* =========================
+   SOFTER HOMEPAGE BACKGROUND
+========================= */
+
+.homepage {
+  background: linear-gradient(
+    135deg,
+    #f4edff 0%,
+    #f9f5ff 45%,
+    #eef4ff 100%
+  );
+}
+
+.hero {
+  background:
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(184, 151, 255, 0.35),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 10% 85%,
+      rgba(214, 190, 255, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(120deg, #f8f3ff, #eee8ff);
+}
+
+.how-section {
+  background: linear-gradient(
+    135deg,
+    #f1eaff,
+    #f8f4ff,
+    #f0f3ff
+  );
+}
+
+.why-section {
+  background: linear-gradient(
+    135deg,
+    #e9ddff,
+    #eeeaff,
+    #e4edff
+  );
+}
