@@ -13,7 +13,6 @@ function Navbar({ user, handleLogout }) {
         <div className="navbar-links">
           <Link to="/profile">My Profile</Link>
           <Link to="/skills">Explore Skills</Link>
-          <Link to="/skills/new">Add Skill</Link>
           <Link to="/my-sessions">My Sessions</Link>
 
           <button className="signout-btn" onClick={handleLogout}>
