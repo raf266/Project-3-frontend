@@ -26,6 +26,10 @@ function ExploreSkills(){
             <p>Discover skills shared by other users.</p>
 
 
+
+            <Link to="/skills/new"><button>Add Skill</button></Link> 
+
+
             {skills.length === 0 && <p>No skills found.</p>}
 
                 {skills.map((skill) => (
