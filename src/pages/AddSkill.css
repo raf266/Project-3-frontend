@@ -113,3 +113,17 @@
     padding: 25px 20px;
   }
 }
+.back-skills-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #7548c8;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.back-skills-link:hover {
+  color: #51318f;
+  transform: translateX(-3px);
+}

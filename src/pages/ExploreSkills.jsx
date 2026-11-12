@@ -22,17 +22,19 @@ function ExploreSkills(){
     },[]);
 
     return(
-         <div className="explore-page">
-            <h1>Explore Skills</h1>
-            <p>Discover skills shared by other users.</p>
+              <div className="explore-page">
 
+            <div className="explore-header">
+                <div>
+                    <h1>Explore Skills</h1>
+                    <p>Discover skills shared by other users.</p>
+                </div>
 
-
-            <Link to="/skills/new"><button>Add Skill</button></Link> 
-
-
+                <Link to="/skills/new" className="add-skill-link">
+                    + Add Skill
+                </Link>
+            </div>
             {skills.length === 0 && <p>No skills found.</p>}
-
                 {skills.map((skill) => (
                     <div key={skill._id}>
                         <h2>{skill.title}</h2>
@@ -42,8 +44,23 @@ function ExploreSkills(){
                         <p>Type:{skill.type}</p>
                         <p>Created by:{skill.userId?.name || "Unknown"}</p>
 
-                        <Link to={`/skills/${skill._id}`}>View Details</Link>
-                        <hr  />
+                        <div className="skill-card-actions">
+    <Link
+        to={`/skills/${skill._id}`}
+        className="view-details-btn"
+    >
+        View Details
+    </Link>
+
+    <Link
+        to={`/sessions/create/${skill._id}`}
+        className="connect-btn"
+    >
+        Connect
+    </Link>
+</div>
+
+<hr />
                         
                     </div>
                 ))}

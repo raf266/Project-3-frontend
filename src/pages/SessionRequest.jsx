@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router"
 import axios from "axios"
+import "./SessionRequest.css";
 
 function CreateSession() {
   const { skillId } = useParams()
@@ -21,7 +22,7 @@ function CreateSession() {
       const token = localStorage.getItem("token")
 
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/sessions`,
+       `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/sessions`,
         {
           skillId,
           date,
@@ -45,11 +46,10 @@ function CreateSession() {
   }
 
   return (
-    <div>
-      <h1>Request a Session</h1>
-
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="create-session-page">
+       <h1 className="create-session-title">Request a Session</h1>
+           <form className="create-session-form" onSubmit={handleSubmit}>
+            <div className="session-form-group">
           <label>Select Date and Time</label>
           <input
             type="datetime-local"
@@ -69,8 +69,7 @@ function CreateSession() {
           />
         </div>
 
-        {error && <p>{error}</p>}
-
+       {error && <p className="session-error">{error}</p>}
         <button type="submit" disabled={loading}>
           {loading ? "Submitting..." : "Request Session"}
         </button>

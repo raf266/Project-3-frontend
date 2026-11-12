@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router';
 import api from "../services/api";
 import "./AddSkill.css";
-
+import { Link, useNavigate } from 'react-router';
 function AddSkill() {
 
     const navigate = useNavigate();
@@ -101,6 +100,7 @@ function AddSkill() {
             <button type="submit">Add Skill</button>
 
             </form>
+            <Link to="/skills" className="back-skills-link">← Back to Explore Skills</Link>
             </div>
   );
 }

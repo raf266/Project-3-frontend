@@ -117,13 +117,6 @@ function MySessions({ user }) {
         filteredSessions.map((session) => {
           const type = getType(session);
           const otherUser = type === "incoming" ? session.requesterId : session.providerId;
-           console.log({
-    type,
-    status: session.status,
-    providerId: session.providerId?._id || session.providerId,
-    requesterId: session.requesterId?._id || session.requesterId,
-    userId
-  });
           return (
            <div key={session._id} className="session-card">
               <h3>{session.skillId?.title || "Skill"}</h3>
