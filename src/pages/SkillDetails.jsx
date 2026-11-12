@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router";
 import api from "../services/api";
+import "./SkillDetails.css";
 
 
 function SkillDetails({user}) {
@@ -42,13 +43,14 @@ function SkillDetails({user}) {
 
 
 
-if(!skill){
-    return <p>Loading skill...</p>
+if (!skill) {
+  return <p className="skill-details-loading">Loading skill...</p>;
 }
 
 
 return (
-    <div>
+    <div className="skill-details-page">
+  <div className="skill-details-container">
         <h1>{skill.title}</h1>
 
         <p>Description:{skill.description}</p>
@@ -58,14 +60,14 @@ return (
         <p>Created by:{skill.userId?.name || "unknown"}</p>
 
         {isOwner && (
-            <div>
-                <button onClick={() => navigate(`/skills/${id}/edit`)}>Edit Skill</button>
-                <button onClick={handleDelete}>Delete Skill</button>
+            <div className="skill-owner-actions">
+                <button onClick={() => navigate(`/skills/${id}/edit`)} className="edit-skill-btn">Edit Skill</button>
+                <button onClick={handleDelete}className="delete-skill-btn">Delete Skill</button>
             </div>
         )}
 
-        <Link to="/skills">Back to Skills</Link>
- 
+        <Link to="/skills" className="back-skills-link">Back to Skills</Link>
+ </div>
  </div>
   );
 }

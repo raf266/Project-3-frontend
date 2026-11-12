@@ -1,0 +1,100 @@
+
+.create-session-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #faf8ff, #f3f0ff, #f0faff);
+  font-family: 'Poppins', sans-serif;
+}
+
+.create-session-page > h1,
+.create-session-title {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  color: #29164f;
+  font-size: 28px;
+}
+
+.create-session-form {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 35px;
+  background: white;
+  border: 1px solid #eee8f8;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(41, 22, 79, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+.session-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.session-form-group label {
+  color: #514568;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.session-form-group input,
+.session-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #e6def1;
+  border-radius: 11px;
+  background: #fcfbff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.session-form-group input:focus,
+.session-form-group textarea:focus {
+  border-color: #9670d9;
+  box-shadow: 0 0 0 3px rgba(150, 112, 217, 0.12);
+}
+
+.session-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.create-session-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #7548c8, #a78bfa);
+  color: white;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.create-session-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.session-error {
+  color: #c0392b;
+  background: #fff0ee;
+  padding: 12px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .create-session-form {
+    padding: 22px;
+  }
+
+  .create-session-title {
+    font-size: 23px;
+  }
+}

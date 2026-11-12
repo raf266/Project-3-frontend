@@ -57,10 +57,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/my-sessions"
-          element={user ? <MySessions /> : <Navigate to="/sign-in" />}
-        />
+        <Route path="/my-sessions" element={user ? <MySessions user={user} /> : <Navigate to="/sign-in" />} />
 
 
         <Route path="/skills" element={<ExploreSkills />} />

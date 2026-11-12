@@ -1,0 +1,94 @@
+
+/* Skill Details Page */
+
+.skill-details-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #faf8ff, #f3f0ff);
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.skill-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 35px;
+  background: #fff;
+  border: 1px solid #eee8f8;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(41, 22, 79, 0.06);
+}
+
+.skill-details-container h1 {
+  margin: 0 0 25px;
+  color: #29164f;
+  font-size: 30px;
+}
+
+.skill-details-container p {
+  margin: 12px 0;
+  padding: 14px 16px;
+  background: #faf8ff;
+  border-radius: 10px;
+  color: #70677f;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.skill-owner-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.skill-owner-actions button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-skill-btn {
+  background: #7548c8;
+  color: white;
+}
+
+.delete-skill-btn {
+  background: #fff0ee;
+  color: #c0392b;
+}
+
+.back-skills-link {
+  display: inline-block;
+  margin-top: 25px;
+  color: #7548c8;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-skills-link:hover {
+  color: #51318f;
+}
+
+.skill-details-loading {
+  padding: 50px;
+  text-align: center;
+  color: #7548c8;
+}
+
+@media (max-width: 650px) {
+  .skill-details-container {
+    padding: 22px;
+  }
+
+  .skill-owner-actions {
+    flex-direction: column;
+  }
+
+  .skill-owner-actions button {
+    width: 100%;
+  }
+}

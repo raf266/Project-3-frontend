@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import {  useNavigate, useParams } from "react-router"
 import api from "../services/api"
+import "./EditSkill.css";
 
 function EditSkill() {
 
@@ -59,7 +60,7 @@ function EditSkill() {
 
 
   return (
-    <div>
+    <div className="edit-skill-page">
       <h1>Edit Skill</h1>
 
         <form onSubmit={handleSubmit}>
