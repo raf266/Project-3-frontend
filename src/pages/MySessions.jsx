@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { createSession, getMySessions, updateSessionStatus } from "../services/sessionService.js";
-
+import "./MySessions.css";
 function MySessions({ user }) {
   const [sessions, setSessions] = useState([]);
   const [activeTab, setActiveTab] = useState("all");
@@ -77,13 +77,13 @@ function MySessions({ user }) {
   };
 
   return (
-    <div>
-      <h1>My Sessions</h1>
-      <p>Manage your learning and teaching sessions.</p>
+    <div className="my-sessions-page">
+      <h1 className="sessions-title">My Sessions</h1>
+<p className="sessions-subtitle">Manage your learning and teaching sessions.</p>
       {skillId && (
-        <div>
+        <div className="session-request-card">
           <h2>Request a Session</h2>
-          <form onSubmit={handleRequest}>
+         <form onSubmit={handleRequest} className="session-request-form">
             <div>
               <label htmlFor="date">Preferred Date and Time:</label>
               <input id="date" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} required />
@@ -97,26 +97,28 @@ function MySessions({ user }) {
           <hr />
         </div>
       )}
+      <div className="sessions-overview">
       <h2>Session Overview</h2>
       <p>Total Sessions: {sessions.length}</p>
       <p>Pending Sessions: {sessions.filter(s => s.status === "Pending").length}</p>
       <p>Accepted Sessions: {sessions.filter(s => s.status === "Accepted").length}</p>
       <p>Completed Sessions: {sessions.filter(s => s.status === "Completed").length}</p>
+      <div className="sessions-filters">
       <h2>Filter Sessions</h2>
       <button onClick={() => setActiveTab("all")}>All Sessions</button>
       <button onClick={() => setActiveTab("incoming")}>Incoming</button>
       <button onClick={() => setActiveTab("outgoing")}>Outgoing</button>
-      {error && <p role="alert">{error}</p>}
+      {error && <p className="sessions-error" role="alert">{error}</p>}
       {loading ? (
-        <p>Loading sessions...</p>
+        <p className="sessions-loading">Loading sessions...</p>
       ) : filteredSessions.length === 0 ? (
-        <p>No sessions found.</p>
+       <p className="sessions-empty">No sessions found.</p>
       ) : (
         filteredSessions.map((session) => {
           const type = getType(session);
           const otherUser = type === "incoming" ? session.requesterId : session.providerId;
           return (
-            <div key={session._id}>
+           <div key={session._id} className="session-card">
               <h3>{session.skillId?.title || "Skill"}</h3>
               <p>{type === "incoming" ? "Requested by" : "Teacher"}: {otherUser?.name || "User"}</p>
               <p>Date: {new Date(session.date).toLocaleString()}</p>
@@ -140,6 +142,8 @@ function MySessions({ user }) {
           );
         })
       )}
+    </div>
+    </div>
     </div>
   );
 }
