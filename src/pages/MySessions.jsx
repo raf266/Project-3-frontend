@@ -117,6 +117,13 @@ function MySessions({ user }) {
         filteredSessions.map((session) => {
           const type = getType(session);
           const otherUser = type === "incoming" ? session.requesterId : session.providerId;
+           console.log({
+    type,
+    status: session.status,
+    providerId: session.providerId?._id || session.providerId,
+    requesterId: session.requesterId?._id || session.requesterId,
+    userId
+  });
           return (
            <div key={session._id} className="session-card">
               <h3>{session.skillId?.title || "Skill"}</h3>
@@ -131,9 +138,18 @@ function MySessions({ user }) {
                   <button disabled={busy} onClick={() => handleStatus(session._id, "reject")}>Decline</button>
                 </>
               )}
-              {["Pending", "Accepted"].includes(session.status) && (
-                <button disabled={busy} onClick={() => handleStatus(session._id, "cancel")}>Cancel</button>
-              )}
+             {(
+  (type === "incoming" && ["Pending", "Accepted"].includes(session.status)) ||
+  (type === "outgoing" && session.status === "Accepted")
+) && (
+  <button
+    disabled={busy}
+    onClick={() => handleStatus(session._id, "cancel")}
+  >
+    Cancel
+  </button>
+)}
+
               {type === "incoming" && session.status === "Accepted" && (
                 <button disabled={busy} onClick={() => handleStatus(session._id, "complete")}>Complete</button>
               )}
