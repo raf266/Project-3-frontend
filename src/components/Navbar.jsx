@@ -13,14 +13,16 @@ function Navbar({ user, handleLogout }) {
 </Link>
       {user ? (
         <div className="navbar-links">
-          <Link to="/profile">My Profile</Link>
-          <Link to="/skills">Explore Skills</Link>
-          <Link to="/my-sessions">My Sessions</Link>
-
-          <button className="signout-btn" onClick={handleLogout}>
-            Sign Out
-          </button>
-        </div>
+  <Link to="/profile">My Profile</Link>
+  <Link to="/skills">Explore Skills</Link>
+  <Link to="/my-sessions">My Sessions</Link>
+  <Link to="/messages" className="messages-nav-link">
+    Messages
+  </Link>
+  <button className="signout-btn" onClick={handleLogout}>
+    Sign Out
+  </button>
+</div>
       ) : (
         <div className="navbar-links">
           <Link to="/" className="nav-link">Home</Link>

@@ -92,3 +92,54 @@
     width: 100%;
   }
 }
+
+/* Message Student Button */
+
+.message-student-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  margin-top: 25px;
+  margin-right: 12px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #7650b5, #9674cf);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(118, 80, 181, 0.2);
+  transition: all 0.3s ease;
+}
+
+.message-student-btn:hover {
+  background: linear-gradient(135deg, #604095, #805bbd);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(118, 80, 181, 0.3);
+}
+
+/* Back to Skills Button */
+
+.back-skills-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 25px;
+  margin-top: 25px;
+  border: 1.5px solid #8765bd;
+  border-radius: 30px;
+  color: #7650b5;
+  background: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-skills-link:hover {
+  background: #f1ebfa;
+  transform: translateY(-3px);
+}
