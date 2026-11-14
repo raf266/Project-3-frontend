@@ -59,14 +59,25 @@ return (
         <p>Type:{skill.type}</p>
         <p>Created by:{skill.userId?.name || "unknown"}</p>
 
+        
         {isOwner && (
             <div className="skill-owner-actions">
                 <button onClick={() => navigate(`/skills/${id}/edit`)} className="edit-skill-btn">Edit Skill</button>
-                <button onClick={handleDelete}className="delete-skill-btn">Delete Skill</button>
+                <button onClick={handleDelete} className="delete-skill-btn">Delete Skill</button>
             </div>
         )}
 
+        {user && !isOwner && skill.userId?._id && (
+            <button
+                onClick={() => navigate(`/chat/${skill.userId._id}`)}
+                className="message-student-btn"
+            >
+                Message Student
+            </button>
+        )}
+
         <Link to="/skills" className="back-skills-link">Back to Skills</Link>
+
  </div>
  </div>
   );

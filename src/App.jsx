@@ -13,6 +13,8 @@ import AddSkill from "./pages/AddSkill";
 import SkillDetails from "./pages/SkillDetails";
 import EditSkill from "./pages/EditSkill";
 import SessionRequest from "./pages/SessionRequest"
+import Chat from "./pages/Chat";
+import Messages from "./pages/Messages";
 
 function App() {
   function getUserFromToken() {
@@ -72,7 +74,16 @@ function App() {
         />
 
         <Route path="/sessions/create/:skillId" element={<SessionRequest />} />
+        <Route
+  path="/chat/:userId"
+  element={user ? <Chat /> : <Navigate to="/sign-in" />}
+/>
+<Route
+  path="/messages"
+  element={user ? <Messages /> : <Navigate to="/sign-in" />}
+/>
       </Routes>
+    
     </div>
   );
 }

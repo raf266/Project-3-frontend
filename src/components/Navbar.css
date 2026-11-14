@@ -137,3 +137,140 @@
 .navbar-dot {
   color: #8256d8;
 }
+
+/* NOTIFICATION BELL */
+
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-bell {
+  position: relative;
+  background: transparent;
+  border: none;
+  font-size: 23px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  background: #7548c8;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 42px;
+  right: -20px;
+  width: 350px;
+  max-height: 430px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(41, 22, 79, 0.16);
+  border: 1px solid #eee7fa;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px;
+  border-bottom: 1px solid #eee7fa;
+}
+
+.notification-header h3 {
+  margin: 0;
+  color: #29164f;
+  font-size: 16px;
+}
+
+.mark-all-read {
+  border: none;
+  background: none;
+  color: #7548c8;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.notification-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #f2eef8;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.notification-item:hover {
+  background: #faf8ff;
+}
+
+.notification-item.unread {
+  background: #f7f2ff;
+}
+
+.notification-icon {
+  font-size: 22px;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.notification-message {
+  color: #29164f;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.notification-date {
+  color: #968ba8;
+  font-size: 10px;
+}
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  background: #8256d8;
+  border-radius: 50%;
+}
+
+.no-notifications {
+  text-align: center;
+  padding: 25px 15px;
+  color: #887b9e;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .notification-dropdown {
+    right: -100px;
+    width: 300px;
+  }
+}
