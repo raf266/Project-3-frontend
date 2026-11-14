@@ -3,9 +3,14 @@ import api from "../services/api";
 import {Link} from "react-router";
 import "./ExploreSkills.css";
 
-function ExploreSkills(){
+function ExploreSkills({user}){
     const [ skills, setskills ] = useState([]);
     const [ search, setSearch] = useState("");
+    const [ ownership, setOwnership] = useState("All");
+    const [ level, setLevel] = useState("All");
+    const [ type, setType] = useState("All");
+
+
 
     useEffect(() => {
         async function getSkills() {
@@ -35,6 +40,24 @@ function ExploreSkills(){
         `.toLocaleLowerCase();
 
         return keywords.every((word) => skillText.includes(word));
+    });
+
+    const userId = user?._id || user?.id || user?.userId;
+    const filteredSkills = searchedSkills.filter((skill) => {
+
+        const matchesLevel =
+        level === "All" || skill.level === level;
+
+        const matchesType =
+        type === "All" || skill.type === type;
+
+        const skillOwnerId = skill.userId?._id || skill.userId;
+
+        const matchesOwnership =
+        ownership === "All" ||
+        (userId && String (skillOwnerId) === String(userId));
+
+        return matchesLevel && matchesType && matchesOwnership;
     });
 
     return(
@@ -67,10 +90,65 @@ function ExploreSkills(){
             </div>
 
 
-            {searchedSkills.length === 0 && (
+
+            <div className="skills-filter">
+
+                <select
+                value={level}
+                onChange={(event) => setLevel(event.target.value)}
+                >
+
+                    <option value="All">All Levels</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+
+
+                <select
+                value={type}
+                onChange={(event) => setType(event.target.value)}
+                >
+
+                    <option value="All">All Types</option>
+                    <option value="Teach">Teach</option>
+                    <option value="Learn">Learn</option>
+                </select>
+
+
+             {user && (
+                <select
+                value={ownership}
+                onChange={(event) => setOwnership(event.target.value)}
+                >
+
+                    <option value="All">All Skills</option>
+                    <option value="Mine">My Skills</option>
+                </select>
+
+             )}
+
+             <button
+             type="button"
+             className="reset-filters-btn"
+             onClick={() => {
+                setLevel("All");
+                setType("All");
+                setOwnership("All");
+             }}
+             >
+                Reset Filters
+             </button>
+
+
+            </div>
+
+
+
+            {filteredSkills.length === 0 && (
                 <p>No matching skills found.</p>
             )}
-                {searchedSkills.map((skill) => (
+                {filteredSkills.map((skill) => (
                     <div key={skill._id}>
                         <h2>{skill.title}</h2>
                         <p>{skill.description}</p>

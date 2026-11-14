@@ -62,7 +62,7 @@ function App() {
         <Route path="/my-sessions" element={user ? <MySessions user={user} /> : <Navigate to="/sign-in" />} />
 
 
-        <Route path="/skills" element={<ExploreSkills />} />
+        <Route path="/skills" element={<ExploreSkills user={user} />} />
         <Route
           path="/skills/new"
           element={user ? <AddSkill /> : <Navigate to="/sign-in" />}

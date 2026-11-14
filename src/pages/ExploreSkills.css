@@ -54,7 +54,8 @@
    SKILL CARDS
 ================================ */
 
-.explore-page > div:not(.explore-header):not(.skills-search) {  min-width: 0;
+.explore-page > div:not(.explore-header):not(.skills-search):not(.skills-filter) { 
+  min-width: 0;
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #eee8f8;
@@ -70,7 +71,8 @@
   flex-direction: column;
 }
 
-.explore-page > div:not(.explore-header):not(.skills-search):hover {  transform: translateY(-5px);
+.explore-page > div:not(.explore-header):not(.skills-search):not(.skills-filter):hover {  
+  transform: translateY(-5px);
   box-shadow: 0 14px 30px rgba(41, 22, 79, 0.11);
 }
 
@@ -154,25 +156,27 @@
   }
 }
 
+
 @media (max-width: 600px) {
-  .explore-page {
-    grid-template-columns: 1fr;
-    padding: 30px 5%;
-    gap: 18px;
-  }
+    .explore-page {
+        grid-template-columns: 1fr;
+        padding: 30px 5%;
+        gap: 18px;
+    }
 
-  .explore-page > h1 {
-    font-size: 29px;
-  }
+    .explore-page > h1 {
+        font-size: 29px;
+    }
 
-  .explore-page > p {
-    font-size: 14px;
-  }
+    .explore-page > p {
+        font-size: 14px;
+    }
 
-  .explore-page > div {
-    padding: 22px;
-  }
+    .explore-page > div:not(.explore-header):not(.skills-filter) {
+        padding: 22px;
+    }
 }
+
 .add-skill-link {
   display: inline-block;
   padding: 12px 25px;
@@ -276,8 +280,7 @@
 }
 
 
-/* seacrh
- */
+
  
 /* SEARCH BAR */
 
@@ -370,5 +373,66 @@
 
     .skills-search {
         max-width: 100%;
+    }
+}
+
+
+/* ==============================
+   SKILL FILTERS
+================================ */
+
+.skills-filter {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 15px;
+}
+
+.skills-filter select {
+    min-width: 160px;
+    padding: 12px 16px;
+    border: 1px solid #e5ddf5;
+    border-radius: 11px;
+    background: white;
+    color: #49376a;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+.skills-filter select:focus {
+    border-color: #8256d8;
+}
+
+.reset-filters-btn {
+    padding: 12px 18px;
+    border: 1px solid #e5ddf5;
+    border-radius: 11px;
+    background: #f3eaff;
+    color: #7548c8;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reset-filters-btn:hover {
+    background: #e8d9ff;
+}
+
+@media (max-width: 600px) {
+    .skills-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .skills-filter select,
+    .reset-filters-btn {
+        width: 100%;
     }
 }
