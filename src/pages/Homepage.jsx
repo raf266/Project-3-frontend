@@ -52,11 +52,7 @@ function Homepage() {
           <div className="visual-diamond diamond-two"></div>
 
           <div className="visual-main-card">
-            <div className="brand-symbol">
-              <span className="symbol-purple"></span>
-              <span className="symbol-blue"></span>
-              <span className="symbol-pink"></span>
-            </div>
+            <img src="/logo.png" alt="SkillSwap Logo" className="homepage-logo-image" />
 
             <h2>SkillSwap</h2>
             <p>Knowledge connects us.</p>
@@ -236,10 +232,14 @@ function Homepage() {
       <footer className="homepage-footer">
         <div className="footer-main">
           <div className="footer-brand">
-            <h3>
-              <span className="footer-mark">S</span>
-              SkillSwap<span className="footer-dot">.</span>
-            </h3>
+          <h3>
+            <img
+              src="/logo.png"
+              alt="SkillSwap Logo"
+              className="footer-logo-image"
+            />
+            SkillSwap<span className="footer-dot">.</span>
+          </h3>
 
             <p>
               Learn something new.

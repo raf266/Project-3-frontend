@@ -71,10 +71,14 @@ function Signup() {
       <div className="auth-container">
 
         <section className="auth-brand-panel">
-          <Link to="/" className="auth-brand">
-            <span className="auth-logo">S</span>
-            SkillSwap<span className="brand-dot">.</span>
-          </Link>
+         <Link to="/" className="auth-brand">
+          <img
+            src="/logo.png"
+            alt="SkillSwap Logo"
+            className="auth-logo-image"
+          />
+          SkillSwap<span className="brand-dot">.</span>
+        </Link>
 
           <div className="brand-content">
             <span className="brand-eyebrow">JOIN OUR COMMUNITY</span>
@@ -114,7 +118,11 @@ function Signup() {
           <div className="auth-form-wrapper">
             <div className="auth-mobile-brand">
               <Link to="/" className="auth-brand">
-                <span className="auth-logo">S</span>
+                <img
+                  src="/logo.png"
+                  alt="SkillSwap Logo"
+                  className="auth-logo-image"
+                />
                 SkillSwap<span className="brand-dot">.</span>
               </Link>
             </div>

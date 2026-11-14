@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router";
 import api from "../services/api";
 import "./SkillDetails.css";
+import AvailabilityCalendar from "../components/AvailabilityCalendar";
 
 
 function SkillDetails({user}) {
@@ -10,13 +11,14 @@ function SkillDetails({user}) {
     const navigate = useNavigate();
 
     const [ skill, setSkill ] = useState(null);
-
+    const [availability, setAvailability] = useState([]);
 
     useEffect(()=>{
     async function getSkill(){
         try{
         const response = await api.get(`/skills/${id}`);
         setSkill(response.data);
+        setAvailability(response.data.availability || []);
         }catch (err){
             console.log(err);
         }
@@ -40,6 +42,30 @@ function SkillDetails({user}) {
         }
     }
     
+
+    async function handleAddSlot(slot) {
+    try {
+        const updatedAvailability = [
+        ...availability.map((item) => ({
+            date: String(item.date).slice(0, 10),
+            startTime: item.startTime,
+            endTime: item.endTime
+        })),
+        slot
+        ];
+
+        const response = await api.put(
+        `/skills/${id}/availability`,
+        { availability: updatedAvailability }
+        );
+
+        setAvailability(response.data.availability);
+        alert("Availability saved successfully!");
+    } catch (error) {
+        console.error(error);
+        alert(error.response?.data?.message || "Error saving availability");
+    }
+    }
 
 
 
@@ -75,6 +101,32 @@ return (
                 Message Student
             </button>
         )}
+
+            {skill.type === "Teach" && (
+            <div>
+                <h2>Available Sessions</h2>
+
+                {isOwner && (
+                <AvailabilityCalendar onAddSlot={handleAddSlot} />
+                )}
+
+                {availability.length === 0 ? (
+                <p>No available times yet.</p>
+                ) : (
+                availability.map((slot, index) => (
+                    <div key={slot._id || index}>
+                    <p>
+                        Date: {String(slot.date).slice(0, 10)}
+                    </p>
+                    <p>
+                        Time: {slot.startTime} - {slot.endTime}
+                    </p>
+                    <hr />
+                    </div>
+                ))
+                )}
+            </div>
+            )}
 
         <Link to="/skills" className="back-skills-link">Back to Skills</Link>
 
