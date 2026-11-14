@@ -65,6 +65,13 @@
   font-size: 21px;
 }
 
+.auth-logo-image {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .brand-dot {
   color: #c79cff;
   margin-left: -10px;

@@ -193,3 +193,23 @@
     font-size: 12px;
   }
 }
+
+
+.homepage-logo-image {
+  display: block;
+  width: 145px;
+  height: 145px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+}
+
+.visual-main-card h2 {
+  font-size: 20px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.visual-main-card > p {
+  font-size: 11px;
+  margin: 5px 0;
+}

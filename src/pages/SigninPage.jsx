@@ -48,7 +48,11 @@ const SignInForm = ({ setUser }) => {
 
         <section className="auth-brand-panel">
           <Link to="/" className="auth-brand">
-            <span className="auth-logo">S</span>
+            <img
+              src="/logo.png"
+              alt="SkillSwap Logo"
+              className="auth-logo-image"
+            />
             SkillSwap<span className="brand-dot">.</span>
           </Link>
 
@@ -90,9 +94,13 @@ const SignInForm = ({ setUser }) => {
           <div className="auth-form-wrapper">
             <div className="auth-mobile-brand">
               <Link to="/" className="auth-brand">
-                <span className="auth-logo">S</span>
-                SkillSwap<span className="brand-dot">.</span>
-              </Link>
+              <img
+                src="/logo.png"
+                alt="SkillSwap Logo"
+                className="auth-logo-image"
+              />
+              SkillSwap<span className="brand-dot">.</span>
+            </Link>
             </div>
 
             <span className="form-eyebrow">WELCOME BACK</span>

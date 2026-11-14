@@ -629,15 +629,11 @@
   margin: 0 0 10px;
 }
 
-.footer-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 33px;
-  height: 33px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, #b74ce0, #167fe9);
-  color: white;
+.footer-logo-image {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .footer-dot {

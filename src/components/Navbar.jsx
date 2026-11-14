@@ -94,12 +94,16 @@ function Navbar({ user, handleLogout }) {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        <span className="navbar-icon">⇄</span>
-        <span className="navbar-name">
-          SkillSwap<span className="navbar-dot">.</span>
-        </span>
-      </Link>
+    <Link to="/" className="navbar-logo">
+    <img
+      src="/logo.png"
+      alt="SkillSwap Logo"
+      className="navbar-logo-image"
+    />
+    <span className="navbar-name">
+      SkillSwap<span className="navbar-dot">.</span>
+    </span>
+    </Link>
 
       {user ? (
         <div className="navbar-links">
@@ -200,15 +204,13 @@ function Navbar({ user, handleLogout }) {
         </div>
       ) : (
         <div className="navbar-links">
-          <Link to="/" className="nav-link">Home</Link>
-
-          <Link to="/#how-it-works" className="nav-link">
+          <a href="/#how-it-works" className="nav-link">
             How It Works
-          </Link>
+          </a>
 
-          <Link to="/#about" className="nav-link">
+          <a href="/#about" className="nav-link">
             About
-          </Link>
+          </a>
 
           <Link to="/sign-in" className="signin-btn">
             Sign In
