@@ -54,8 +54,7 @@
    SKILL CARDS
 ================================ */
 
-.explore-page > div {
-  min-width: 0;
+.explore-page > div:not(.explore-header):not(.skills-search) {  min-width: 0;
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #eee8f8;
@@ -71,8 +70,7 @@
   flex-direction: column;
 }
 
-.explore-page > div:hover {
-  transform: translateY(-5px);
+.explore-page > div:not(.explore-header):not(.skills-search):hover {  transform: translateY(-5px);
   box-shadow: 0 14px 30px rgba(41, 22, 79, 0.11);
 }
 
@@ -275,4 +273,102 @@
 .connect-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(117, 72, 200, 0.2);
+}
+
+
+/* seacrh
+ */
+ 
+/* SEARCH BAR */
+
+.skills-search {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: white;
+    padding: 8px;
+    border: 1px solid #e5ddf5;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(41, 22, 79, 0.06);
+    box-sizing: border-box;
+}
+
+.skills-search:focus-within {
+    border-color: #8256d8;
+    box-shadow: 0 5px 20px rgba(130, 86, 216, 0.15);
+}
+
+.skills-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #29164f;
+}
+
+.skills-search input::placeholder {
+    color: #9b91ad;
+}
+
+.skills-search button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 9px;
+    background: #f1eaff;
+    color: #7548c8;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* HEADER */
+
+.explore-header {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+}
+
+.explore-header h1 {
+    font-size: 36px;
+    color: #29164f;
+    margin: 0 0 8px;
+}
+
+.explore-header p {
+    color: #70677f;
+    margin: 0;
+}
+
+.explore-page .explore-header .add-skill-link {
+    display: inline-flex;
+    width: auto;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 13px 24px;
+}
+
+@media (max-width: 600px) {
+    .explore-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .skills-search {
+        max-width: 100%;
+    }
 }

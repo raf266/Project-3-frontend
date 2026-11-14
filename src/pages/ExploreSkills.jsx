@@ -5,6 +5,7 @@ import "./ExploreSkills.css";
 
 function ExploreSkills(){
     const [ skills, setskills ] = useState([]);
+    const [ search, setSearch] = useState("");
 
     useEffect(() => {
         async function getSkills() {
@@ -21,6 +22,21 @@ function ExploreSkills(){
         getSkills();
     },[]);
 
+    const searchedSkills = skills.filter((skill) =>{
+        const keywords = search.toLocaleLowerCase().trim().split(/\s+/);
+
+        const skillText = `
+        ${skill.title}
+        ${skill.description}
+        ${skill.category}
+        ${skill.level}
+        ${skill.type}
+        ${skill.userId?.name || ""}
+        `.toLocaleLowerCase();
+
+        return keywords.every((word) => skillText.includes(word));
+    });
+
     return(
               <div className="explore-page">
 
@@ -30,12 +46,31 @@ function ExploreSkills(){
                     <p>Discover skills shared by other users.</p>
                 </div>
 
+                <div className="skills-search">
+                    <input 
+                    type="text"
+                    placeholder="Search by skill, category, level, or student..."
+                    value={search}
+                    onChange={(event)=> setSearch(event.target.value)}
+                    ></input>
+
+                    {search && (
+                        <button onClick={() => setSearch("")}>
+                            Clear
+                        </button>
+                    )}
+                </div>
+
                 <Link to="/skills/new" className="add-skill-link">
                     + Add Skill
                 </Link>
             </div>
-            {skills.length === 0 && <p>No skills found.</p>}
-                {skills.map((skill) => (
+
+
+            {searchedSkills.length === 0 && (
+                <p>No matching skills found.</p>
+            )}
+                {searchedSkills.map((skill) => (
                     <div key={skill._id}>
                         <h2>{skill.title}</h2>
                         <p>{skill.description}</p>
