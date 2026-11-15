@@ -101,8 +101,8 @@ function Navbar({ user, handleLogout }) {
       className="navbar-logo-image"
     />
     <span className="navbar-name">
-      SkillSwap<span className="navbar-dot">.</span>
-    </span>
+      SkillSwap</span>
+   
     </Link>
 
       {user ? (
