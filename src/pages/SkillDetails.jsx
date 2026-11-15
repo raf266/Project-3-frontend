@@ -43,30 +43,41 @@ function SkillDetails({user}) {
     }
     
 
-    async function handleAddSlot(slot) {
-    try {
-        const updatedAvailability = [
-        ...availability.map((item) => ({
-            date: String(item.date).slice(0, 10),
-            startTime: item.startTime,
-            endTime: item.endTime
-        })),
-        slot
-        ];
+  async function handleAddSlot(slot) {
+  try {
+    const now = new Date();
 
-        const response = await api.put(
-        `/skills/${id}/availability`,
-        { availability: updatedAvailability }
+    const futureAvailability = availability
+      .filter((item) => {
+        const start = new Date(
+          `${String(item.date).slice(0, 10)}T${item.startTime}`
         );
 
-        setAvailability(response.data.availability);
-        alert("Availability saved successfully!");
-    } catch (error) {
-        console.error(error);
-        alert(error.response?.data?.message || "Error saving availability");
-    }
-    }
+        return start > now;
+      })
+      .map((item) => ({
+        date: String(item.date).slice(0, 10),
+        startTime: item.startTime,
+        endTime: item.endTime
+      }));
 
+    const updatedAvailability = [
+      ...futureAvailability,
+      slot
+    ];
+
+    const response = await api.put(
+      `/skills/${id}/availability`,
+      { availability: updatedAvailability }
+    );
+
+    setAvailability(response.data.availability);
+    alert("Availability saved successfully!");
+  } catch (error) {
+    console.error(error);
+    alert(error.response?.data?.message || "Error saving availability");
+  }
+}
 
 
 if (!skill) {
