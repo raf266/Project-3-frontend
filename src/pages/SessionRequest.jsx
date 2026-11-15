@@ -15,6 +15,7 @@ function SessionRequest() {
   const [loading, setLoading] = useState(false);
   const [availability, setAvailability] = useState([]);
   const [availabilityLoading, setAvailabilityLoading] = useState(true);
+  const [skillType, setSkillType] = useState("Teach");
 
   useEffect(() => {
     async function loadAvailability() {
@@ -24,6 +25,7 @@ function SessionRequest() {
 
         const response = await api.get(`/skills/${skillId}`);
         setAvailability(response.data.availability || []);
+        setSkillType(response.data.type);
       } catch (error) {
         setError("Unable to load available times.");
         setAvailability([]);
@@ -51,14 +53,21 @@ function SessionRequest() {
     event.preventDefault();
     setError("");
 
-    const selectedSlot = availableSlots.find((slot) => {
-      const slotDate = String(slot.date).slice(0, 10);
-      return `${slotDate}T${slot.startTime}` === date;
-    });
+    if (!date || new Date(date) <= new Date()) {
+  setError("Please select a future date and time.");
+  return;
+}
 
-    if (!selectedSlot) {
-      setError("Please select one of the teacher's available times.");
-      return;
+    if (skillType === "Teach") {
+      const selectedSlot = availableSlots.find((slot) => {
+        const slotDate = String(slot.date).slice(0, 10);
+        return `${slotDate}T${slot.startTime}` === date;
+      });
+
+      if (!selectedSlot) {
+        setError("Please select an available time.");
+        return;
+      }
     }
 
     setLoading(true);
@@ -99,33 +108,40 @@ function SessionRequest() {
           <label htmlFor="session-date">Choose an Available Time</label>
 
           {availabilityLoading ? (
-            <p>Loading available times...</p>
-          ) : availableSlots.length === 0 ? (
-            <p>This teacher has no upcoming available times.</p>
-          ) : (
-            <select
-              id="session-date"
-              value={date}
-              onChange={(event) => setDate(event.target.value)}
-              required
-            >
-              <option value="">Select an available time</option>
+          <p>Loading...</p>
+        ) : skillType === "Learn" ? (
+          <input
+            type="datetime-local"
+            value={date}
+            min={new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+              .toISOString()
+              .slice(0, 16)}
+            onChange={(event) => setDate(event.target.value)}
+            required
+          />
+        ) : availableSlots.length === 0 ? (
+          <p>This teacher has no upcoming available times.</p>
+        ) : (
+          <select
+            id="session-date"
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
+            required
+          >
+            <option value="">Select an available time</option>
 
-              {availableSlots.map((slot) => {
-                const slotDate = String(slot.date).slice(0, 10);
-                const slotValue = `${slotDate}T${slot.startTime}`;
+            {availableSlots.map((slot) => {
+              const slotDate = String(slot.date).slice(0, 10);
+              const slotValue = `${slotDate}T${slot.startTime}`;
 
-                return (
-                  <option
-                    key={slot._id || slotValue}
-                    value={slotValue}
-                  >
-                    {slotDate} | {slot.startTime} - {slot.endTime}
-                  </option>
-                );
-              })}
-            </select>
-          )}
+              return (
+                <option key={slot._id || slotValue} value={slotValue}>
+                  {slotDate} | {slot.startTime} - {slot.endTime}
+                </option>
+              );
+            })}
+          </select>
+        )}
         </div>
 
         <div className="session-form-group">
@@ -149,7 +165,7 @@ function SessionRequest() {
           disabled={
             loading ||
             availabilityLoading ||
-            availableSlots.length === 0 ||
+            (skillType === "Teach" && availableSlots.length === 0) ||
             !date
           }
         >
