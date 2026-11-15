@@ -155,7 +155,7 @@ function ExploreSkills({user}){
                         <p>Category:{skill.category}</p>
                         <p>Level:{skill.level}</p>
                         <p>Type:{skill.type}</p>
-                        <p>Created by:{skill.userId?.name || "Unknown"}</p>
+                        <p>◎ Created by: {skill.userId?.name || "Unknown"}</p>
 
                         <div className="skill-card-actions">
     <Link
