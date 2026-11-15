@@ -165,19 +165,16 @@ function ExploreSkills({user}){
         View Details
     </Link>
 
-   {user &&
+    {user &&
     String(skill.userId?._id || skill.userId) !==
-    String(user._id || user.id || user.userId) &&
-    skill.type === "Teach" && (
-
-    <Link
-      to={`/sessions/create/${skill._id}`}
-      className="connect-btn"
-    >
-      Connect
-      
-    </Link>
-)}
+        String(user._id || user.id || user.userId) && (
+        <Link
+        to={`/sessions/create/${skill._id}`}
+        className="connect-btn"
+        >
+        Connect
+        </Link>
+    )}
 </div>
 
 <hr />
