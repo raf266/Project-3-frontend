@@ -14,39 +14,42 @@ This repository contains the frontend of SkillSwap, built using React and Vite.
 
 ## Live Application
 
-- **Frontend:** [Add deployed frontend URL]
-- **Backend API:** [Add deployed backend URL]
+- **Frontend:** https://skillswap100.netlify.app/
+- **Backend API:** https://project-3-backend-y717.onrender.com
 - **Backend Repository:** https://github.com/raf266/Project-3-backend
 
 ## Screenshots
 
 ### Home Page
 
-[Add screenshot of the SkillSwap home page]
+![SkillSwap Home Page](public/screenshots/homepage.png)
 
-### Sign Up / Login Page
+### How SkillSwap Works
+![How SkillSwap Works](public/screenshots/how-it-works.png)
 
-[Add screenshot of the authentication page]
+### Explore Skills
+![Explore Skills](public/screenshots/explore-skills.png)
 
-### Explore Skills Page
+### Skill Details
+![Skill Details](public/screenshots/skill-request.png)
 
-[Add screenshot showing skills, search filters, and Connect buttons]
+### Sign Up
+![Sign Up Page](public/screenshots/sign-up.png)
 
-### Skill Details and Availability Calendar
+### Sign In
+![Sign In Page](public/screenshots/sign-in.png)
 
-[Add screenshot showing skill details and available teaching times]
+### Request a Session
+![Session Request Page](public/screenshots/session-request.png)
 
-### Request Session Page
+### My Sessions
+![My Sessions Page](public/screenshots/my-sessions.png)
 
-[Add screenshot showing the session request form]
-
-### My Sessions Page
-
-[Add screenshot showing incoming and outgoing sessions]
+### Messages
+![Messages Page](public/screenshots/messages.png)
 
 ### AI Chatbot
-
-[Add screenshot showing the SkillSwap chatbot]
+![SkillSwap AI Chatbot](public/screenshots/chatbot.png)
 
 ## Technologies Used
 
@@ -136,8 +139,6 @@ frontend/
 └── README.md
 ```
 
-The `pages` directory contains application pages, `components` contains reusable UI components, and `services` handles communication with the backend API.
-
 ## Getting Started
 
 ### Prerequisites
@@ -157,8 +158,8 @@ The SkillSwap backend must also be running for API-dependent features to work.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/raf266/Project-3-frontend.git
-cd Project-3-frontend
+git clone https://github.com/raf266/SkillSwap-Frontend.git
+cd SkillSwap-Frontend
 ```
 
 ### 2. Install dependencies
@@ -199,7 +200,6 @@ http://localhost:5173
 | `/sessions/create/:skillId` | Request Session | Authenticated |
 | `/my-sessions` | My Sessions | Authenticated |
 
-**Note:** Check `App.jsx` and add the exact routes for login, registration, profile, messages, notifications, and any other pages before submitting the README.
 
 ## User Stories
 
@@ -230,8 +230,8 @@ http://localhost:5173
 
 | Name | GitHub |
 |---|---|
-| [Sara] | [GitHub profile] |
-| [Waad] | [GitHub profile] |
+| [Sara] | [https://github.com/SarahRedha23] |
+| [Waad] | [https://github.com/waad333-w] |
 | [Raghad] | [https://github.com/raf266] |
 
 ## Credits
@@ -242,8 +242,7 @@ http://localhost:5173
 - [Axios](https://axios-http.com/)
 - [Chatling.ai](https://chatling.ai/)
 
-Developed as a collaborative student project.
 
-**Frontend Repository:** https://github.com/raf266/Project-3-frontend
+**Frontend Repository:** https://github.com/raf266/SkillSwap-Frontend
 
-**Backend Repository:** https://github.com/raf266/Project-3-backend
+**Backend Repository:** https://github.com/raf266/SkillSwap-Backend
